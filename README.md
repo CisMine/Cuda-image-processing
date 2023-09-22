@@ -25,12 +25,19 @@ In my codebase, you will find three source files. Each serves a distinct purpose
 - Cuda
 
 To check if you have CUDA installed, try running the following command:
- - nvcc -V
+`nvcc -V`
 
 ![image](https://github.com/CisMine/Cuda-image-processing/assets/122800932/a2a76a50-207c-4bb4-bdfd-2a8546bf452f)
 
 
-To check if you have OpenCV C++ (with Cuda) installed, try running this code
+To check if you have OpenCV C++ (with Cuda) installed, try running [this code](https://github.com/CisMine/Cuda-image-processing/blob/main/Check_Opencv.cpp)
+```
+g++ Check_Opencv.cpp  -std=c++11 `pkg-config --cflags --libs opencv`
+./a.out
+```
+
+![image](https://github.com/CisMine/Cuda-image-processing/assets/122800932/f1278095-8e82-4036-9adb-fd4b3cbe3025)
+
 
 
 
