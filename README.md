@@ -11,13 +11,9 @@ This repository serves a dual purpose: it provides you with a high-performance i
 
 
 ## How to use my code
-In my codebase, you will find three source files. Each serves a distinct purpose:
-
-- **OpenCV with CUDA Library:** This source file relies on the OpenCV library, enhanced with CUDA support.
-  
-- **My Parallel Implementation:** This source file contains a simplified implementation, ideal for those who want to learn about parallel image processing. It serves as an educational resource, illustrating the fundamentals of parallel programming techniques.
-
-- **Optimized Without OpenCV:** The third source file is an optimized version tailored for users who prefer not to use OpenCV. It provides efficient image processing solutions without relying on the OpenCV library, giving you greater control and flexibility over the process.
+There will be 2 files: src and my lib 
+- src: is for learners who want to understand how the image processing library and CUDA-C are implemented.
+- my lib: is for users who just need to substitute OpenCV with my library 
 
 
 ## Requirements
