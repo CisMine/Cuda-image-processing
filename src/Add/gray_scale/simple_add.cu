@@ -52,7 +52,6 @@ int main(int argc, char *argv[])
     cv::Mat result(height, width, CV_8U, h_result);
 
     cv::imshow("Result", result);
-    cv::imwrite("simple_add.png", result);
     cv::waitKey(0);
 
     cudaFree(d_img1);
