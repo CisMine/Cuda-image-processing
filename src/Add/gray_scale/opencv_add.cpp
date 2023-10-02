@@ -29,8 +29,6 @@ int main()
     cv::Mat result = opencv_add(img1, img2);
 
     cv::imshow("Result", result);
-    // cv::imwrite("opencv.png", result);
-
     cv::waitKey();
 
     return 0;
