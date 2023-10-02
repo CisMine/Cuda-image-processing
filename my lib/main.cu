@@ -7,6 +7,8 @@ int main()
 
     cv::Mat result1 = add_gray(img, img2);
     cv::Mat result2 = add_color(img, img2);
+    cv::Mat result3 = subtract_gray(img, img2);
+    cv::Mat result4 = subtract_color(img, img2);
 
     return 0;
 }
