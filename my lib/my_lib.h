@@ -33,12 +33,12 @@ cv::Mat add_gray(cv::Mat h_img1, cv::Mat h_img2)
 
     unsigned char *d_img1, *d_img2, *d_result;
 
-    cudaMallocHost((void **)&d_img1, width * height * sizeof(unsigned char));
-    cudaMallocHost((void **)&d_img2, width * height * sizeof(unsigned char));
-    cudaMallocHost((void **)&d_result, width * height * sizeof(unsigned char));
+    cudaMalloc((void **)&d_img1, width * height * sizeof(unsigned char));
+    cudaMalloc((void **)&d_img2, width * height * sizeof(unsigned char));
+    cudaMalloc((void **)&d_result, width * height * sizeof(unsigned char));
 
-    cudaMemcpyAsync(d_img1, h_img1.data, width * height * sizeof(unsigned char), cudaMemcpyHostToDevice);
-    cudaMemcpyAsync(d_img2, h_img2.data, width * height * sizeof(unsigned char), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_img1, h_img1.data, width * height * sizeof(unsigned char), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_img2, h_img2.data, width * height * sizeof(unsigned char), cudaMemcpyHostToDevice);
 
     dim3 block(32, 32);
     dim3 grid((width + block.x - 1) / block.x, (height + block.y - 1) / block.y);
@@ -47,7 +47,7 @@ cv::Mat add_gray(cv::Mat h_img1, cv::Mat h_img2)
 
     unsigned char *h_result = new unsigned char[width * height];
 
-    cudaMemcpyAsync(h_result, d_result, width * height * sizeof(unsigned char), cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_result, d_result, width * height * sizeof(unsigned char), cudaMemcpyDeviceToHost);
 
     cv::Mat result(height, width, CV_8U, h_result);
 
@@ -95,12 +95,12 @@ cv::Mat add_color(cv::Mat h_img1, cv::Mat h_img2)
     uchar3 *d_img1, *d_img2, *d_result;
 
 
-    cudaMallocHost((void **)&d_img1, width * height * sizeof(uchar3));
-    cudaMallocHost((void **)&d_img2, width * height * sizeof(uchar3));
-    cudaMallocHost((void **)&d_result, width * height * sizeof(uchar3));
+    cudaMalloc((void **)&d_img1, width * height * sizeof(uchar3));
+    cudaMalloc((void **)&d_img2, width * height * sizeof(uchar3));
+    cudaMalloc((void **)&d_result, width * height * sizeof(uchar3));
 
-    cudaMemcpyAsync(d_img1, h_img1.data, width * height * sizeof(uchar3), cudaMemcpyHostToDevice);
-    cudaMemcpyAsync(d_img2, h_img2.data, width * height * sizeof(uchar3), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_img1, h_img1.data, width * height * sizeof(uchar3), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_img2, h_img2.data, width * height * sizeof(uchar3), cudaMemcpyHostToDevice);
 
     dim3 block(32, 32);
     dim3 grid((width + block.x - 1) / block.x, (height + block.y - 1) / block.y);
@@ -109,7 +109,7 @@ cv::Mat add_color(cv::Mat h_img1, cv::Mat h_img2)
 
     uchar3 *h_result = new uchar3[width * height];
 
-    cudaMemcpyAsync(h_result, d_result, width * height * sizeof(uchar3), cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_result, d_result, width * height * sizeof(uchar3), cudaMemcpyDeviceToHost);
 
     cv::Mat result(height, width, CV_8UC3, h_result);
 
