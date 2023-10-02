@@ -45,8 +45,8 @@ int main(int argc, char *argv[])
     cudaMalloc((void **)&d_img2, width * height * sizeof(unsigned char));
     cudaMalloc((void **)&d_result, width * height * sizeof(unsigned char));
 
-    cudaMemcpyAsync(d_img1, h_img1.data, width * height * sizeof(unsigned char), cudaMemcpyHostToDevice);
-    cudaMemcpyAsync(d_img2, h_img2.data, width * height * sizeof(unsigned char), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_img1, h_img1.data, width * height * sizeof(unsigned char), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_img2, h_img2.data, width * height * sizeof(unsigned char), cudaMemcpyHostToDevice);
 
     dim3 block(32, 32);
     dim3 grid((width + block.x - 1) / block.x, (height + block.y - 1) / block.y);
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 
     unsigned char *h_result = new unsigned char[width * height];
 
-    cudaMemcpyAsync(h_result, d_result, width * height * sizeof(unsigned char), cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_result, d_result, width * height * sizeof(unsigned char), cudaMemcpyDeviceToHost);
 
     cv::Mat result(height, width, CV_8U, h_result);
 
