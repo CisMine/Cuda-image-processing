@@ -16,19 +16,19 @@ __global__ void simple_sobelY(const unsigned char *srcImage, unsigned char *resu
 
     if ((col >= MASK_OFFSET) && (col < (width - MASK_OFFSET)) && (row >= MASK_OFFSET) && (row < (height - MASK_OFFSET)))
     {
-        float Gx = 0;
+        float Gy = 0;
         for (int ky = -MASK_OFFSET; ky <= MASK_OFFSET; ky++)
         {
             for (int kx = -MASK_OFFSET; kx <= MASK_OFFSET; kx++)
             {
                 float fl = srcImage[(row + ky) * width + (col + kx)];
-                Gx += fl * mask[(ky + MASK_OFFSET) * MASK_DIM + (kx + MASK_OFFSET)];
+                Gy += fl * mask[(ky + MASK_OFFSET) * MASK_DIM + (kx + MASK_OFFSET)];
             }
         }
-        float Gx_abs = (Gx < 0) ? 0 : Gx;
-        Gx_abs = (Gx > 255) ? 255 : Gx;
+        float Gy_abs = (Gy < 0) ? 0 : Gy;
+        Gy_abs = (Gy > 255) ? 255 : Gy;
 
-        result[row * width + col] = static_cast<unsigned char>(Gx_abs);
+        result[row * width + col] = static_cast<unsigned char>(Gy_abs);
     }
 }
 
