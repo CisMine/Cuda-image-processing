@@ -9,14 +9,18 @@ Even with OpenCV in C++ using CUDA, it is still too slow. Therefore, in this rep
 
 This repository serves a dual purpose: it provides you with a high-performance image processing library that surpasses OpenCV in C++, while also offering an excellent learning resource for those interested in mastering CUDA-C and parallel image processing.
 
-
-## How to use my code
+<p align="center">
+ <h1 align="center">How to use my code </h1>
+</p>
 There will be 2 files: src and my lib 
 - src: is for learners who want to understand how the image processing library and CUDA-C are implemented.
 - my lib: is for users who just need to substitute OpenCV with my library 
 
 
-## Requirements
+<p align="center">
+ <h1 align="center">Requirements </h1>
+</p>
+
 - OpenCV C++ (with Cuda)
 - Cuda
 
@@ -35,6 +39,11 @@ g++ Check_Opencv.cpp  -std=c++11 `pkg-config --cflags --libs opencv`
 ![image](https://github.com/CisMine/Cuda-image-processing/assets/122800932/f1278095-8e82-4036-9adb-fd4b3cbe3025)
 
 
+<p align="center">
+ <h1 align="center"> Installation </h1>
+</p>
+
+Flowing [these instructions](https://github.com/CisMine/Setup-as-Cuda-programmers/blob/main/CuDNN%20-%20OpenCV.md) for setting up
 
 
 
@@ -42,8 +51,9 @@ g++ Check_Opencv.cpp  -std=c++11 `pkg-config --cflags --libs opencv`
 
 
 
-
-
+<p align="center">
+ <h1 align="center"> </h1>
+</p>
 
 
 
